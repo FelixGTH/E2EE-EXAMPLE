@@ -4,6 +4,9 @@ import {
   deriveSharedKey, exportAesKey, encrypt, decrypt
 } from './crypto'
 import { getT } from './i18n'
+import AlgoCompare from './AlgoCompare'
+import BruteForce from './BruteForce'
+import StepThrough from './StepThrough'
 import './App.css'
 
 const STEP_DELAY = 600
@@ -179,6 +182,9 @@ export default function App() {
     { id: 'keys', label: t.tabKeys, disabled: phase !== 'ready' },
     { id: 'chat', label: t.tabChat, disabled: phase !== 'ready' },
     { id: 'pipeline', label: t.tabPipeline, disabled: phase !== 'ready' },
+    { id: 'algo', label: t.tabAlgo },
+    { id: 'brute', label: t.tabBrute, disabled: phase !== 'ready' },
+    { id: 'step', label: t.tabStep, disabled: phase !== 'ready' },
   ]
 
   const hasPipelines = pipelineHistory.length > 0 || pipeline
@@ -446,6 +452,24 @@ export default function App() {
               </div>
             </div>
           </div>
+        </div>
+      )}
+
+      {tab === 'algo' && (
+        <div className="tab-content">
+          <AlgoCompare t={t} />
+        </div>
+      )}
+
+      {tab === 'brute' && (
+        <div className="tab-content">
+          <BruteForce t={t} messages={messages} />
+        </div>
+      )}
+
+      {tab === 'step' && (
+        <div className="tab-content">
+          <StepThrough t={t} keys={keys} keyData={keyData} />
         </div>
       )}
     </div>
