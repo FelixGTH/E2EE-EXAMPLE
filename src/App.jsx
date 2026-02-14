@@ -7,6 +7,7 @@ import { getT } from './i18n'
 import AlgoCompare from './AlgoCompare'
 import BruteForce from './BruteForce'
 import StepThrough from './StepThrough'
+import CryptoTimeline from './CryptoTimeline'
 import './App.css'
 
 const STEP_DELAY = 600
@@ -185,6 +186,7 @@ export default function App() {
     { id: 'algo', label: t.tabAlgo },
     { id: 'brute', label: t.tabBrute, disabled: phase !== 'ready' },
     { id: 'step', label: t.tabStep, disabled: phase !== 'ready' },
+    { id: 'timeline', label: t.tabTimeline },
   ]
 
   const hasPipelines = pipelineHistory.length > 0 || pipeline
@@ -470,6 +472,12 @@ export default function App() {
       {tab === 'step' && (
         <div className="tab-content">
           <StepThrough t={t} keys={keys} keyData={keyData} />
+        </div>
+      )}
+
+      {tab === 'timeline' && (
+        <div className="tab-content">
+          <CryptoTimeline t={t} />
         </div>
       )}
     </div>
