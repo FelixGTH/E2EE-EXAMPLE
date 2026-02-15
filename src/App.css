@@ -78,6 +78,36 @@ body {
   background: #222;
 }
 
+.offline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #2a1a10;
+  border: 1px solid #5a3a1a;
+  color: #e0a040;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  animation: fadeIn 0.3s ease;
+}
+
+.offline-badge::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e0a040;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
 
 .tabs {
   display: flex;
