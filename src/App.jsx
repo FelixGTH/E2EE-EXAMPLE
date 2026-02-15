@@ -30,6 +30,7 @@ export default function App() {
   const [bobInput, setBobInput] = useState('')
   const [keys, setKeys] = useState(null)
   const [keyData, setKeyData] = useState(null)
+  const [offline, setOffline] = useState(!navigator.onLine)
   const [pipeline, setPipeline] = useState(null)
   const [pipelineHistory, setPipelineHistory] = useState([])
   const serverRef = useRef(null)
@@ -119,6 +120,17 @@ export default function App() {
   }, [])
 
   useEffect(() => {
+    const goOff = () => setOffline(true)
+    const goOn = () => setOffline(false)
+    window.addEventListener('offline', goOff)
+    window.addEventListener('online', goOn)
+    return () => {
+      window.removeEventListener('offline', goOff)
+      window.removeEventListener('online', goOn)
+    }
+  }, [])
+
+  useEffect(() => {
     if (serverRef.current) {
       serverRef.current.scrollTop = serverRef.current.scrollHeight
     }
@@ -197,7 +209,9 @@ export default function App() {
   return (
     <div className="app">
       <div className="header">
-        <div className="header-left" />
+        <div className="header-left">
+          {offline && <span className="offline-badge">{t.offline}</span>}
+        </div>
         <div className="header-center">
           <h1>{t.title}</h1>
           <p className="subtitle">{t.subtitle}</p>

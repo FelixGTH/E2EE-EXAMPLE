@@ -2,6 +2,7 @@ const translations = {
   ru: {
     title: 'Сквозное шифрование (E2EE)',
     subtitle: 'Web Crypto API: ECDH (P-256) + AES-GCM (256-bit)',
+    offline: 'Офлайн',
 
     tabSetup: 'Установка канала',
     tabKeys: 'Ключи',
@@ -331,6 +332,7 @@ const translations = {
   en: {
     title: 'End-to-End Encryption (E2EE)',
     subtitle: 'Web Crypto API: ECDH (P-256) + AES-GCM (256-bit)',
+    offline: 'Offline',
 
     tabSetup: 'Channel Setup',
     tabKeys: 'Keys',

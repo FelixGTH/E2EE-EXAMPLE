@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="64" fill="#0f0f0f"/>
+  <g transform="translate(256,240)">
+    <rect x="-80" y="10" width="160" height="120" rx="16" fill="#e0a040" opacity="0.9"/>
+    <rect x="-70" y="20" width="140" height="100" rx="10" fill="#0f0f0f"/>
+    <circle cx="0" cy="65" r="14" fill="#e0a040"/>
+    <rect x="-4" y="65" width="8" height="24" rx="3" fill="#e0a040"/>
+    <path d="M-50,20 A50,55 0 0,1 50,20" fill="none" stroke="#5b9bd5" stroke-width="14" stroke-linecap="round"/>
+  </g>
+  <text x="256" y="420" text-anchor="middle" font-family="monospace" font-weight="700" font-size="56" fill="#e0e0e0">E2EE</text>
+</svg>
